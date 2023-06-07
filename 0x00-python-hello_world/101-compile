@@ -1,0 +1,5 @@
+#!/bin/bash
+C="c"
+NEWFILE="$PYFILE$C"
+chmod u+x $PYFILE
+cp $PYFILE $NEWFILE
