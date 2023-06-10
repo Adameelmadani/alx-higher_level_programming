@@ -5,6 +5,8 @@ n1umber = number
 if number < 0:
     n1umber = -number
 d = n1umber % 10
+if number < 0:
+    d = -d
 if d == 0:
     print(f"Last digit of {number} is {d} and is 0")
 elif d < 6:
