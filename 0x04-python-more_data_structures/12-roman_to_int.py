@@ -2,6 +2,8 @@
 def roman_to_int(roman_string):
     if roman_string is None:
         return (0)
+    if not(isinstance(roman_string, str)):
+        return (0)
     if len(roman_string) == 0:
         return (0)
     s = 0
