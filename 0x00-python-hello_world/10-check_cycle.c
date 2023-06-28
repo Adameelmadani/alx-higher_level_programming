@@ -8,12 +8,20 @@
 int check_cycle(listint_t *list)
 {
 	listint_t *temp = list;
-	int i = 0;
+	listint_t *s_temp = list;
+	int i = 0, j = 0;
 
 	while (temp)
 	{
-		if (i != 0 && temp == list)
-			return (1);
+		for (j = 0; j < i; j++)
+		{
+			if (j == 0)
+				s_temp = list;
+			else
+				s_temp = s_temp->next;
+			if (s_temp == temp)
+				return (1);
+		}
 		temp = temp->next;
 		i++;
 	}
