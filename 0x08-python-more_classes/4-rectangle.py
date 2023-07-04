@@ -109,5 +109,6 @@ class Rectangle:
         """
         repr for self
         """
-        rep = "Rectangle({}, {})".format(self._Rectangle__width, self._Rectangle__height)
+        r_height = self._Rectangle__height
+        rep = "Rectangle({}, {})".format(self._Rectangle__width, r_height)
         return (rep)
