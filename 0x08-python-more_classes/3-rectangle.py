@@ -96,6 +96,8 @@ class Rectangle:
         string representation
         """
         my_str = ""
+        if self._Rectangle__height == 0 or self._Rectangle__width == 0:
+            return (my_str)
         for i in range(self._Rectangle__height):
             for j in range(self._Rectangle__width):
                 my_str = my_str + "#"
