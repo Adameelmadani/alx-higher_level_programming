@@ -1,0 +1,5 @@
+>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+>>> matrix_mul("Hi", 84)
+Traceback (most recent call last):
+	...
+TypeError: m_a must be a list
