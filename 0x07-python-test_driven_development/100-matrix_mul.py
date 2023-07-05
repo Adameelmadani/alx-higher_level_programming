@@ -12,6 +12,8 @@ def is_two_dimensional(my_list):
     if isinstance(my_list, list):
         return all(isinstance(element, list) for element in my_list)
     return False
+
+
 def matrix_mul(m_a, m_b):
     """
     This is matrix_mul function
@@ -22,9 +24,9 @@ def matrix_mul(m_a, m_b):
     if type(m_b) is not list:
         raise TypeError("m_b must be a list")
 
-    if is_two_dimensional(m_a) == False and m_a != []:
+    if is_two_dimensional(m_a) is False and m_a != []:
         raise TypeError("m_a must be a list of lists")
-    if is_two_dimensional(m_b) == False and m_b != []:
+    if is_two_dimensional(m_b) is False and m_b != []:
         raise TypeError("m_b must be a list of lists")
 
     if m_a == [] or m_a == [[]]:
@@ -61,8 +63,18 @@ def matrix_mul(m_a, m_b):
     """
     Let's multiply now
     """
-    for i in len(m_a):
-        for j in len (m_b[0]):
+    m_c = []
+    i = 0
+    for i in range(len(m_a)):
+        my_list = []
+        for j in range(len(m_b[0])):
+            c = 0
+            for k in range(len(m_a[0])):
+                c += m_a[i][k] * m_b[k][j]
+            my_list.append(c)
+        m_c.append(my_list)
+    return (m_c)
+
 
 if __name__ == "__main__":
     import doctet
