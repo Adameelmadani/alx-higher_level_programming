@@ -5,6 +5,13 @@ This is multiplication module
 """
 
 
+def is_two_dimensional(my_list):
+    """
+    Checking a two_dimensional list
+    """
+    if isinstance(my_list, list):
+        return all(isinstance(element, list) for element in my_list)
+    return False
 def matrix_mul(m_a, m_b):
     """
     This is matrix_mul function
@@ -14,15 +21,17 @@ def matrix_mul(m_a, m_b):
         raise TypeError("m_a must be a list")
     if type(m_b) is not list:
         raise TypeError("m_b must be a list")
-    my_list = [[]]
-    if type(m_a) is not type(my_list):
+
+    if is_two_dimensional(m_a) == False and m_a != []:
         raise TypeError("m_a must be a list of lists")
-    if type(m_b) is not type(my_list):
+    if is_two_dimensional(m_b) == False and m_b != []:
         raise TypeError("m_b must be a list of lists")
+
     if m_a == [] or m_a == [[]]:
         raise ValueError("m_a can't be empty")
     if m_b == [] or m_b == [[]]:
         raise ValueError("m_b can't be empty")
+
     a = 0
     s = 0
     for j in m_a:
@@ -39,7 +48,7 @@ def matrix_mul(m_a, m_b):
             s = len(j)
         elif len(j) != s:
             b = 1
-        for i in m_b:
+        for i in j:
             if not type(i) in [int, float]:
                 raise TypeError("m_b should contain only integers or floats")
     if a == 1:
@@ -49,6 +58,11 @@ def matrix_mul(m_a, m_b):
     if len(m_a[0]) != len(m_b):
         raise ValueError("m_a and m_b can't be multiplied")
 
+    """
+    Let's multiply now
+    """
+    for i in len(m_a):
+        for j in len (m_b[0]):
 
 if __name__ == "__main__":
     import doctet
