@@ -22,6 +22,6 @@ class LockedClass:
         setattr for dynamic
         """
         if name not in self.__dict__:
-            if name != "first_name":
+            if name != "first_name" and name != "dict":
                 raise AttributeError(LockedClass.raiseErr(name))
             super().__setattr__(name, value)
