@@ -25,9 +25,9 @@ class TestBase(unittest.TestCase):
         """
         b1 = Base()
         self.assertEqual(b1.id, 1)
-        b2 = Rectangle(-34, 38)
+        b2 = Rectangle(34, 38)
         self.assertEqual(b2.id, 2)
-        self.assertEqual(b2.width, -34)
+        self.assertEqual(b2.width, 34)
         self.assertEqual(b2.height, 38)
         self.assertEqual(b2.x, 0)
         self.assertEqual(b2.y, 0)
@@ -43,16 +43,29 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b7.id, 2929)
         self.assertEqual(b7.x, 4)
         self.assertEqual(b7.y, 2)
-        b7.x = -33
-        b7.y = -99
-        self.assertEqual(b7.x, -33)
-        self.assertEqual(b7.y, -99)
+        b7.x = 33
+        b7.y = 99
+        self.assertEqual(b7.x, 33)
+        self.assertEqual(b7.y, 99)
         b7.width = 8
-        b7.height = 0
+        b7.height = 10
         self.assertEqual(b7.width, 8)
-        self.assertEqual(b7.height, 0)
+        self.assertEqual(b7.height, 10)
         b8 = Base(1)
         self.assertEqual(b8.id, 1)
+        """
+        Now raising errors
+        """
+        with self.assertRaises(ValueError):
+            e1 = Rectangle(-3, -33, -3, -93, 8)
+        with self.assertRaises(TypeError):
+            e1 = Rectangle("_", "_", "_", "j", 88)
+        with self.assertRaises(ValueError):
+            e2 = Rectangle(8, -3, 0, 0, 8)
+        with self.assertRaises(TypeError):
+            e2 = Rectangle(8, -3, "_", "_", 8)
+        with self.assertRaises(ValueError):
+            e3 = Rectangle(0, 9, 0, 0, 0)
 
 
 if __name__ == "__main__":
