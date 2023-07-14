@@ -138,3 +138,21 @@ class Rectangle(Base):
         part_1 = "[Rectangle] ({}) {}/{} ".format(self.id, self.__x, self.__y)
         part_2 = "- {}/{}".format(self.__width, self.__height)
         return (part_1 + part_2)
+
+    def update(self, *args):
+        """
+        This function is for updating rectangle instance
+        """
+        i = 0
+        for arg in args:
+            if i == 0:
+                self.id = arg
+            if i == 1:
+                self.__width = arg
+            if i == 2:
+                self.__height = arg
+            if i == 3:
+                self.__x = arg
+            if i == 4:
+                self.__y = arg
+            i += 1
