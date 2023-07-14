@@ -117,3 +117,12 @@ class Rectangle(Base):
         This function calculate the area of the rectangle
         """
         return (self.__width * self.__height)
+
+    def display(self):
+        """
+        This funct displays rectangle
+        """
+        for i in range(self.__height):
+            for j in range(self.__width):
+                print("#", end="")
+            print("")

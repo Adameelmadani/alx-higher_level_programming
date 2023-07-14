@@ -53,6 +53,8 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b7.height, 10)
         b8 = Base(1)
         self.assertEqual(b8.id, 1)
+
+    def test_errors_att(self):
         """
         Now raising errors
         """
@@ -66,14 +68,18 @@ class TestBase(unittest.TestCase):
             e2 = Rectangle(8, -3, "_", "_", 8)
         with self.assertRaises(ValueError):
             e3 = Rectangle(0, 9, 0, 0, 0)
+
+    def test_area(self):
         """
         Calculating the area of a rectangle
         """
-        self.assertEqual(b7.area(), 80)
-        self.assertEqual(b2.area(), 34 * 38)
-        b7.width = 8
-        b7.height = 2
-        self.assertEqual(b7.area(), 16)
+        a1 = Rectangle(34, 38)
+        a2 = Rectangle(8, 10)
+        self.assertEqual(a2.area(), 80)
+        self.assertEqual(a1.area(), 34 * 38)
+        a1.width = 8
+        a1.height = 2
+        self.assertEqual(a1.area(), 16)
 
 
 if __name__ == "__main__":
