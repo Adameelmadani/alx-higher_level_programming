@@ -66,6 +66,14 @@ class TestBase(unittest.TestCase):
             e2 = Rectangle(8, -3, "_", "_", 8)
         with self.assertRaises(ValueError):
             e3 = Rectangle(0, 9, 0, 0, 0)
+        """
+        Calculating the area of a rectangle
+        """
+        self.assertEqual(b7.area(), 80)
+        self.assertEqual(b2.area(), 34 * 38)
+        b7.width = 8
+        b7.height = 2
+        self.assertEqual(b7.area(), 16)
 
 
 if __name__ == "__main__":
