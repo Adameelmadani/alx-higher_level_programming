@@ -81,6 +81,15 @@ class TestBase(unittest.TestCase):
         a1.height = 2
         self.assertEqual(a1.area(), 16)
 
+    def test_str(self):
+        """
+        Testing str of rectangle instance
+        """
+        r1 = Rectangle(4, 6, 2, 1, 12)
+        self.assertEqual(str(r1), "[Rectangle] (12) 2/1 - 4/6")
+        r2 = Rectangle(5, 5, 1)
+        self.assertEqual(str(r2), "[Rectangle] (6) 1/0 - 5/5")
+
 
 if __name__ == "__main__":
     unittest.main()
