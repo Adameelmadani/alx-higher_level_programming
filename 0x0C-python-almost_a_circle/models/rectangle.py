@@ -122,7 +122,11 @@ class Rectangle(Base):
         """
         This funct displays rectangle
         """
+        for k in range(self.__y):
+            print("")
         for i in range(self.__height):
+            for m in range(self.__x):
+                print(" ", end="")
             for j in range(self.__width):
                 print("#", end="")
             print("")
