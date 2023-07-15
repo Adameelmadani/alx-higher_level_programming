@@ -139,20 +139,33 @@ class Rectangle(Base):
         part_2 = "- {}/{}".format(self.__width, self.__height)
         return (part_1 + part_2)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         This function is for updating rectangle instance
         """
         i = 0
-        for arg in args:
-            if i == 0:
-                self.id = arg
-            if i == 1:
-                self.__width = arg
-            if i == 2:
-                self.__height = arg
-            if i == 3:
-                self.__x = arg
-            if i == 4:
-                self.__y = arg
-            i += 1
+        if args != ():
+            for arg in args:
+                if i == 0:
+                    self.id = arg
+                if i == 1:
+                    self.__width = arg
+                if i == 2:
+                    self.__height = arg
+                if i == 3:
+                    self.__x = arg
+                if i == 4:
+                    self.__y = arg
+                i += 1
+        else:
+            for key, value in kwargs.items():
+                if key == "id":
+                    self.id = value
+                if key == "width":
+                    self.__width = value
+                if key == "height":
+                    self.__height = value
+                if key == "x":
+                    self.__x = value
+                if key == "y":
+                    self.__y = value
