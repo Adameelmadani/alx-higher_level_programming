@@ -39,6 +39,10 @@ class TestBase(unittest.TestCase):
         s2.x = 32
         s2.y = 83
         self.assertEqual(str(s2), "[Square] (83) 32/83 - 3")
+        s3 = Square(8, 0, 0, 1)
+        s3.size = 10
+        self.assertEqual(str(s3), "[Square] (1) 0/0 - 10")
+        self.assertEqual(s3.size, 10)
 
     def test_errors_att(self):
         """
@@ -54,6 +58,11 @@ class TestBase(unittest.TestCase):
             e2 = Square(8, -3, "_", "_")
         with self.assertRaises(ValueError):
             e3 = Square(0, 9, 0, 0)
+        s1 = Square(2, 0, 0, 3)
+        with self.assertRaises(ValueError):
+            s1.size = 0
+        with self.assertRaises(TypeError):
+            s1.size = "h"
 
     def test_area(self):
         """
