@@ -149,23 +149,23 @@ class Rectangle(Base):
                 if i == 0:
                     self.id = arg
                 if i == 1:
-                    self.__width = arg
+                    self.width = arg
                 if i == 2:
-                    self.__height = arg
+                    self.height = arg
                 if i == 3:
-                    self.__x = arg
+                    self.x = arg
                 if i == 4:
-                    self.__y = arg
+                    self.y = arg
                 i += 1
         else:
             for key, value in kwargs.items():
                 if key == "id":
                     self.id = value
                 if key == "width":
-                    self.__width = value
+                    self.width = value
                 if key == "height":
-                    self.__height = value
+                    self.height = value
                 if key == "x":
-                    self.__x = value
+                    self.x = value
                 if key == "y":
-                    self.__y = value
+                    self.y = value

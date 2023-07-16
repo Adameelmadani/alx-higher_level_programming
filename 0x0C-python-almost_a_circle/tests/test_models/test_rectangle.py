@@ -10,6 +10,9 @@ from models.rectangle import Rectangle
 This is Rectangle module
 """
 """
+This is base module
+"""
+"""
 This is unittest module
 """
 
