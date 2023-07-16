@@ -91,9 +91,9 @@ class TestBase(unittest.TestCase):
         u1.update(89, 2)
         self.assertEqual(str(u1), "[Square] (89) 10/10 - 2")
         u1.update(89, 2, 3)
-        self.assertEqual(str(u1), "[Square] (89) 10/10 - 2")
+        self.assertEqual(str(u1), "[Square] (89) 3/10 - 2")
         u1.update(89, 2, 3, 4)
-        self.assertEqual(str(u1), "[Square] (89) 4/10 - 2")
+        self.assertEqual(str(u1), "[Square] (89) 3/4 - 2")
 
     def test_update_the_update(self):
         """
@@ -101,7 +101,6 @@ class TestBase(unittest.TestCase):
         """
         ur1 = Square(10, 10, 10, 10)
         self.assertEqual(str(ur1), "[Square] (10) 10/10 - 10")
-        """
         ur1.update(size=1)
         self.assertEqual(str(ur1), "[Square] (10) 10/10 - 1")
         ur1.update(size=1, x=2)
@@ -112,7 +111,6 @@ class TestBase(unittest.TestCase):
         self.assertEqual(str(ur1), "[Square] (89) 1/3 - 4")
         ur1.update(2, 5, x=3)
         self.assertEqual(str(ur1), "[Square] (2) 1/3 - 5")
-        """
 
 
 if __name__ == "__main__":
