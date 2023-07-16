@@ -112,6 +112,22 @@ class TestBase(unittest.TestCase):
         ur1.update(2, 5, x=3)
         self.assertEqual(str(ur1), "[Square] (2) 1/3 - 5")
 
+    def test_to_dictionary(self):
+        """
+        Testing to_dictionary func
+        """
+        s1 = Square(10, 2, 1, 1)
+        s1_dictionary = s1.to_dictionary()
+        self.assertEqual(s1_dictionary, {
+                'id': 1,
+                'x': 2,
+                'size': 10,
+                'y': 1
+                })
+        s2 = Square(1, 1)
+        s2.update(**s1_dictionary)
+        self.assertEqual(s1 == s2, False)
+
 
 if __name__ == "__main__":
     unittest.main()
