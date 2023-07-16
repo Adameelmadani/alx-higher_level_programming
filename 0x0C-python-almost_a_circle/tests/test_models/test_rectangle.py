@@ -127,6 +127,23 @@ class TestBase(unittest.TestCase):
         ur1.update(2, 5, x=3)
         self.assertEqual(str(ur1), "[Rectangle] (2) 1/3 - 5/2")
 
+    def test_to_dictionary(self):
+        """
+        Testing to dictionary func
+        """
+        r1 = Rectangle(10, 2, 1, 9, 1)
+        r1_dictionary = r1.to_dictionary()
+        self.assertEqual(r1_dictionary, {
+                'x': 1,
+                'y': 9,
+                'id': 1,
+                'height': 2,
+                'width': 10
+                })
+        r2 = Rectangle(1, 1)
+        r2.update(**r1_dictionary)
+        self.assertEqual(r2 == r1, False)
+
 
 if __name__ == "__main__":
     unittest.main()
