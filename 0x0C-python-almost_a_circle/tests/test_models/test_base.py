@@ -5,8 +5,12 @@ This is the unittest module for Base class
 """
 import unittest
 from models.base import Base
+from models.rectangle import Rectangle
 """
 This is Base module
+"""
+"""
+This is Rectangle module
 """
 """
 This is unittest module
@@ -38,6 +42,17 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b7.id, 2)
         b8 = Base(1)
         self.assertEqual(b8.id, 1)
+        r1 = Rectangle(10, 7, 2, 8, 1)
+        dictionary = r1.to_dictionary()
+        str_a = {'x': 2, 'y': 8, 'id': 1, 'height': 7, 'width': 10}
+        self.assertEqual(dictionary, str_a)
+        a = Base.to_json_string([dictionary])
+        str_b = '[{"x": 2, "y": 8, "id": 1, "height": 7, "width": 10}]'
+        self.assertEqual(a, str_b)
+        b = Base.to_json_string([])
+        self.assertEqual(b, "[]")
+        c = Base.to_json_string(None)
+        self.assertEqual(c, "[]")
 
 
 if __name__ == "__main__":

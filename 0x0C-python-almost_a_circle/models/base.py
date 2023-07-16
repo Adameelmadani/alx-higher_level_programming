@@ -3,6 +3,10 @@
 """
 This module contains the Base class
 """
+import json
+"""
+This is json module
+"""
 
 
 class Base:
@@ -20,3 +24,14 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """
+        This funct returns string representation of JSON dict
+        """
+        if list_dictionaries is None:
+            return ("[]")
+        if list_dictionaries == []:
+            return ("[]")
+        return (json.dumps(list_dictionaries))
