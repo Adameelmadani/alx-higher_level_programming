@@ -81,6 +81,7 @@ class Base:
         """
         This func loads from json file
         """
+        Base.from_json_string("")
         new_list = []
         f_name = cls.__name__ + ".json"
         if not os.path.exists(f_name):
