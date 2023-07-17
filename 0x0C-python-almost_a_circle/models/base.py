@@ -98,9 +98,8 @@ class Base:
         This func save csv to file
         """
         f_name = cls.__name__ + ".csv"
-        new_list = "["
+        new_list = "[\n"
         if list_objs is not None:
-            i = 0
             for e in list_objs:
                 if cls.__name__ == "Rectangle":
                     part1 = "{},{},".format(e.id, e.width)
@@ -109,11 +108,30 @@ class Base:
                     part1 = "{},{},".format(e.id, e.size)
                     part2 = "{},{}".format(e.x, e.y)
                 my_str = part1 + part2
-                if i == 0:
-                    new_list += my_str
-                else:
-                    new_list += (", " + my_str)
-                i += 1
+                new_list += my_str + "\n"
         new_list += "]"
         with open(f_name, "w", encoding="utf-8") as f:
             f.write(new_list)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        This func load csv from a file
+        """
+        f_name = cls.__name__ + ".csv"
+        new_list = []
+        if not os.path.exists(f_name):
+            return (new_list)
+        with open(f_name, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+        for line in lines:
+            new_line = line.strip()
+            if new_line == "[" or new_line == "]":
+                continue
+            w = new_line.split(",")
+            if len(w) == 5:
+                b1 = cls(int(w[1]), int(w[2]), int(w[3]), int(w[4]), int(w[0]))
+            else:
+                b1 = cls(int(w[1]), int(w[2]), int(w[3]), int(w[0]))
+            new_list.append(b1)
+        return (new_list)
