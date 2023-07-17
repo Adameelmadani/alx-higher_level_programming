@@ -84,6 +84,20 @@ class TestBase(unittest.TestCase):
         spart2 = '{"x": 2, "y": 8, "id": 1, "height": 7, "width": 10}]'
         self.assertEqual(my_sstr, spart1 + spart2)
 
+    def test_from_json_string(self):
+        """
+        Testing from_json_string func
+        """
+        self.assertEqual(Rectangle.from_json_string(None), [])
+        self.assertEqual(Base.from_json_string(""), [])
+        self.assertEqual(Square.from_json_string("[]"), [])
+        list_input = [
+            {'id': 89, 'width': 10, 'height': 4},
+            {'id': 7, 'width': 1, 'height': 7}
+        ]
+        a = Square.to_json_string(list_input)
+        self.assertEqual(Square.from_json_string(a), list_input)
+
 
 if __name__ == "__main__":
     unittest.main()
