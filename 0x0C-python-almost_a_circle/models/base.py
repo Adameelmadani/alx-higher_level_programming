@@ -91,3 +91,29 @@ class Base:
         for element in f_data:
             new_list.append(cls.create(**element))
         return (new_list)
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        This func save csv to file
+        """
+        f_name = cls.__name__ + ".csv"
+        new_list = "["
+        if list_objs is not None:
+            i = 0
+            for e in list_objs:
+                if cls.__name__ == "Rectangle":
+                    part1 = "{},{},".format(e.id, e.width)
+                    part2 = "{},{},{}".format(e.height, e.x, e.y)
+                else:
+                    part1 = "{},{},".format(e.id, e.size)
+                    part2 = "{},{}".format(e.x, e.y)
+                my_str = "{" + part1 + part2 + "}"
+                if i == 0:
+                    new_list += my_str
+                else:
+                    new_list += (", " + my_str)
+                i += 1
+        new_list += "]"
+        with open(f_name, "w", encoding="utf-8") as f:
+            f.write(new_list)
