@@ -98,6 +98,19 @@ class TestBase(unittest.TestCase):
         a = Square.to_json_string(list_input)
         self.assertEqual(Square.from_json_string(a), list_input)
 
+    def test_create(self):
+        """
+        Testing create func
+        """
+        r1 = Rectangle(3, 5, 1, 0, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual(str(r2), str(r1))
+        self.assertEqual(r1 == r2, False)
+        dics = {'size': 4, 'id': 2}
+        s2 = Square.create(**dics)
+        self.assertEqual(str(s2), "[Square] (2) 0/0 - 4")
+
 
 if __name__ == "__main__":
     unittest.main()

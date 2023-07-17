@@ -26,9 +26,9 @@ class TestBase(unittest.TestCase):
         """
         All numbers
         """
-        b1 = Base()
+        b1 = Base(1)
         self.assertEqual(b1.id, 1)
-        b2 = Rectangle(34, 38)
+        b2 = Rectangle(34, 38, 0, 0, 2)
         self.assertEqual(b2.id, 2)
         self.assertEqual(b2.width, 34)
         self.assertEqual(b2.height, 38)
@@ -40,7 +40,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b4.id, 3994943939484333)
         b5 = Base(-30494930309400303)
         self.assertEqual(b5.id, -30494930309400303)
-        b6 = Base()
+        b6 = Base(3)
         self.assertEqual(b6.id, 3)
         b7 = Rectangle(3, 9, 4, 2, 2929)
         self.assertEqual(b7.id, 2929)
@@ -76,8 +76,8 @@ class TestBase(unittest.TestCase):
         """
         Calculating the area of a rectangle
         """
-        a1 = Rectangle(34, 38)
-        a2 = Rectangle(8, 10)
+        a1 = Rectangle(34, 38, 0, 0, 2)
+        a2 = Rectangle(8, 10, 0, 0, 3)
         self.assertEqual(a2.area(), 80)
         self.assertEqual(a1.area(), 34 * 38)
         a1.width = 8
@@ -90,7 +90,7 @@ class TestBase(unittest.TestCase):
         """
         r1 = Rectangle(4, 6, 2, 1, 12)
         self.assertEqual(str(r1), "[Rectangle] (12) 2/1 - 4/6")
-        r2 = Rectangle(5, 5, 1)
+        r2 = Rectangle(5, 5, 1, 0, 6)
         self.assertEqual(str(r2), "[Rectangle] (6) 1/0 - 5/5")
 
     def test_update(self):
