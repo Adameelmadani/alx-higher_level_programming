@@ -4,8 +4,12 @@
 This module contains the Base class
 """
 import json
+import os
 """
 This is json module
+"""
+"""
+This is os module
 """
 
 
@@ -71,3 +75,18 @@ class Base:
             b1 = cls(1)
         b1.update(**dictionary)
         return (b1)
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        This func loads from json file
+        """
+        new_list = []
+        f_name = cls.__name__ + ".json"
+        if not os.path.exists(f_name):
+            return (new_list)
+        with open(f_name, "r", encoding="utf-8") as f:
+            f_data = json.load(f)
+        for element in f_data:
+            new_list.append(cls.create(**element))
+        return (new_list)
