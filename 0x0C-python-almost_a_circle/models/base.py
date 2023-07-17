@@ -108,7 +108,7 @@ class Base:
                 else:
                     part1 = "{},{},".format(e.id, e.size)
                     part2 = "{},{}".format(e.x, e.y)
-                my_str = "{" + part1 + part2 + "}"
+                my_str = part1 + part2
                 if i == 0:
                     new_list += my_str
                 else:
