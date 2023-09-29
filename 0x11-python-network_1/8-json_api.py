@@ -9,7 +9,7 @@ if __name__ == "__main__":
     q = ""
     if len(sys.argv) != 1:
         q = sys.argv[1]
-    r = requests.post(url, {'q': q})
+    r = requests.post(url, data={'q': q})
     try:
         a = r.json
     except requests.exceptions.JSONDecodeError as e:
@@ -17,4 +17,5 @@ if __name__ == "__main__":
     else:
         if len(a) == 0:
             print("No result")
-        print("[{}] {}".format(a.get('id'), a.get('name')))
+        else:
+            print("[{}] {}".format(a.get('id'), a.get('name')))
