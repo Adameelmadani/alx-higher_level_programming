@@ -1,3 +1,3 @@
 #!/bin/bash
 #This is another comment
-[[ "$(curl -sI "$1" | awk 'NR==1')" == *"200 OK"* ]] && echo "$(curl -s "$1")"
+[[ "$(curl -s -w "%{http_code}" "$1")" == *"200"* ]] && echo -n "$(curl -s "$1")"
