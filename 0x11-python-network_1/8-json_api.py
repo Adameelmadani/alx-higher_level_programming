@@ -15,7 +15,7 @@ if __name__ == "__main__":
     except requests.exceptions.JSONDecodeError as e:
         print("Not a valid JSON")
     else:
-        if len(a) == 0:
+        if not json:
             print("No result")
         else:
             print("[{}] {}".format(a.get('id'), a.get('name')))
