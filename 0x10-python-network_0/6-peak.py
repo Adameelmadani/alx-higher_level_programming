@@ -6,4 +6,4 @@ def find_peak(list_of_integers):
         return (None)
     for i in range(1, list_of_integers.length - 1):
         if list_of_integers[i] >= list_of_integers[i - 1] and list_of_integers[i] >= list_of_integers[i + 1]:
-            return (i);
+            return (list_of_integers[i]);
