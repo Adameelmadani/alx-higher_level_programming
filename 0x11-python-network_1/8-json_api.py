@@ -17,4 +17,4 @@ if __name__ == "__main__":
     elif len(a) == 0:
         print("No result")
     else:
-        print("[{}] {}".format(a.get('id'), a.get('name)))
+        print("[{}] {}".format(a.get('id'), a.get('name')))
