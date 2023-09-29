@@ -1,3 +1,3 @@
 #!/bin/bash
-# Delete url and show body
+# Bash script that sends a DELETE request to the URL
 curl -sX DELETE $1
