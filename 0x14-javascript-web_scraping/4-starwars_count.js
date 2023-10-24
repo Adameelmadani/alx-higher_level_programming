@@ -13,5 +13,7 @@ request(URL, function (error, response, body) {
       }
     }
     console.log(c);
+  } else {
+    console.error(error);
   }
 });
