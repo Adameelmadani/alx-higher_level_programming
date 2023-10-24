@@ -9,12 +9,13 @@ if __name__ == "__main__":
     q = ""
     if len(sys.argv) != 1:
         q = sys.argv[1]
-    r = requests.post(url, {'q': q})
+    r = requests.post(url, data={'q': q})
     try:
-        a = r.json
-    except requests.exceptions.JSONDecodeError as e:
+        a = r.json()
+    except Exception:
         print("Not a valid JSON")
-    elif len(a) == 0:
-        print("No result")
     else:
-        print("[{}] {}".format(a.get('id'), a.get('name)))
+        if a:
+            print("[{}] {}".format(a.get('id'), a.get('name')))
+        else:
+            print("No result")
