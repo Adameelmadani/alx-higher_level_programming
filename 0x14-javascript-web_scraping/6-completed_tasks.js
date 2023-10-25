@@ -15,7 +15,9 @@ request(process.argv[2], function (error, response, body) {
         }
       }
       const STR_ID = '' + i;
-      JSON_DICT[STR_ID] = c;
+      if (c !== 0) {
+        JSON_DICT[STR_ID] = c;
+      }
     }
     console.log(JSON_DICT);
   }
