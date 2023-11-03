@@ -1,8 +1,9 @@
-const button = document.querySelector("button");
-
-button.addEventListener("click", updateName);
-
-function updateName() {
-  const name = prompt("Enter a new name");
-  button.textContent = `Player 1: ${name}`;
-}
+$("DIV#toggle_header").on("click", function(event) {
+  if($("header").hasClass("green")) {
+    $("header").removeClass("green");
+    $("header").addClass("red");
+  } else {
+    $("header").removeClass("red");
+    $("header").addClass("green");
+  }
+});

@@ -1,8 +1,4 @@
-const button = document.querySelector("button");
-
-button.addEventListener("click", updateName);
-
-function updateName() {
-  const name = prompt("Enter a new name");
-  button.textContent = `Player 1: ${name}`;
-}
+$("DIV#add_item").on("click", function(event) {
+  const item = "<li>Item</li>";
+  $("UL.my_list").append(item);
+})

@@ -1,8 +1,7 @@
-const button = document.querySelector("button");
-
-button.addEventListener("click", updateName);
-
-function updateName() {
-  const name = prompt("Enter a new name");
-  button.textContent = `Player 1: ${name}`;
-}
+$.ajax({
+  url: 'https://swapi-api.alx-tools.com/api/people/5/?format=json',
+  dataType: 'json',
+  success: function(data) {
+    $("DIV#character").text(data.name);
+  }
+});

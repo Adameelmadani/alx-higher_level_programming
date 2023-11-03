@@ -1,8 +1,10 @@
-const button = document.querySelector("button");
-
-button.addEventListener("click", updateName);
-
-function updateName() {
-  const name = prompt("Enter a new name");
-  button.textContent = `Player 1: ${name}`;
-}
+$.ajax({
+  url: 'https://swapi-api.alx-tools.com/api/films/?format=json',
+  dataType: 'json',
+  success: function(data){
+    const size = data.results.length;
+    for (var i = 0; i < size; i ++) {
+      $("UL#list_movies").append($("<li></li>").text(data.results[i].title));
+    }
+  }
+})
